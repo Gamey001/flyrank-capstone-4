@@ -1,0 +1,41 @@
+{
+  "source": "Openverse (https://openverse.org)",
+  "license_policy": [
+    "cc0",
+    "pdm",
+    "by"
+  ],
+  "note": "Sample committed from a real run of scripts/fetch_corpus.py --limit 3, to show the licence trail the script produces. Run the script without --limit to build the full corpus; this file is rewritten each time. Every image is reproduced under the licence named in its entry.",
+  "images": {
+    "red-fox-snow-01": {
+      "openverse_id": "5d34859b-04fa-41bd-a548-7d552835447d",
+      "title": "Licking her chops",
+      "creator": "Mount Rainier NPS",
+      "license": "by-2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_url": "https://www.flickr.com/photos/78037339@N03/7030763521",
+      "attribution": "\"Licking her chops\" by Mount Rainier NPS is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "bytes": 118183
+    },
+    "red-fox-forest-02": {
+      "openverse_id": "972eb8e0-08d7-4eab-bd95-de97c6164b4a",
+      "title": "Red fox forest",
+      "creator": null,
+      "license": "cc0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.rawpixel.com/image/6037392/red-fox-forest-free-public-domain-cc0-image",
+      "attribution": "\"Red fox forest\" is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "bytes": 375086
+    },
+    "red-fox-meadow-03": {
+      "openverse_id": "b5670377-4aa0-4007-828d-dc29b7084988",
+      "title": "Fox Meadow Illuminated by the Setting Sun",
+      "creator": "John Brighenti",
+      "license": "by-2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_url": "https://www.flickr.com/photos/94359914@N06/47407957822",
+      "attribution": "\"Fox Meadow Illuminated by the Setting Sun\" by John Brighenti is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+      "bytes": 408943
+    }
+  }
+}
