@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "description": "Hand-labeled evaluation set. `expected_image` is the slug (filename without extension) of the single image a human considers correct for the post; null means the correct behaviour is to refuse with 'no confident match'. Top-1 precision is measured over the labeled rows; the null rows measure correct refusal.",
+  "cases": [
+    {
+      "post_slug": "red-foxes-in-deep-snow",
+      "expected_image": "red-fox-snow-01",
+      "note": "subject + setting both named"
+    },
+    {
+      "post_slug": "the-red-fox-of-the-forest",
+      "expected_image": "red-fox-forest-02",
+      "note": "uses the latin name — pure lexical matching fails here"
+    },
+    {
+      "post_slug": "red-fox-facial-markings",
+      "expected_image": "red-fox-closeup-04",
+      "note": "close-up modifier must beat the other fox photos"
+    },
+    {
+      "post_slug": "gray-wolves-snowfield",
+      "expected_image": "gray-wolf-snow-01",
+      "note": "the wolf equivalent of the fox/snow post"
+    },
+    {
+      "post_slug": "gray-wolves-old-forest",
+      "expected_image": "gray-wolf-forest-02",
+      "note": ""
+    },
+    {
+      "post_slug": "teaching-your-dog-to-swim",
+      "expected_image": "dog-water-03",
+      "note": "domestic dog, not a wild canid"
+    },
+    {
+      "post_slug": "brown-bears-fishing",
+      "expected_image": "brown-bear-water-01",
+      "note": ""
+    },
+    {
+      "post_slug": "deer-grazing-meadow",
+      "expected_image": "deer-meadow-01",
+      "note": ""
+    },
+    {
+      "post_slug": "misty-mountain-ridges",
+      "expected_image": "mountain-mist-02",
+      "note": ""
+    },
+    {
+      "post_slug": "quiet-morning-on-the-beach",
+      "expected_image": "beach-01",
+      "note": ""
+    },
+    {
+      "post_slug": "neapolitan-pizza-at-home",
+      "expected_image": "pizza-01",
+      "note": ""
+    },
+    {
+      "post_slug": "the-perfect-espresso",
+      "expected_image": "coffee-01",
+      "note": ""
+    },
+    {
+      "post_slug": "gothic-cathedrals",
+      "expected_image": "cathedral-01",
+      "note": ""
+    },
+    {
+      "post_slug": "suspension-bridges-over-water",
+      "expected_image": "bridge-water-01",
+      "note": ""
+    },
+    {
+      "post_slug": "restoring-vintage-motorcycles",
+      "expected_image": null,
+      "note": "nothing in the corpus is a motorcycle — must return no confident match"
+    },
+    {
+      "post_slug": "coral-reef-conservation",
+      "expected_image": null,
+      "note": "no underwater imagery in the corpus"
+    }
+  ]
+}
