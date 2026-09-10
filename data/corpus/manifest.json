@@ -1,0 +1,748 @@
+{
+  "version": 1,
+  "description": "Corpus definition for the FlyRank image-matching capstone. Each entry is the ground truth for one image: it drives scripts/fetch_corpus.py (which downloads a matching CC-licensed photo from Openverse) and it is replayed verbatim by the offline FixtureVisionProvider so the pipeline is demonstrable with no API key. A real vision provider (VISION_PROVIDER=gemini|ollama) ignores this file entirely.",
+  "license_policy": {
+    "allowed": [
+      "cc0",
+      "pdm",
+      "by"
+    ],
+    "note": "Only permissive, redistributable licenses; attribution is written to data/corpus/attribution.json by the fetch script."
+  },
+  "counts": {
+    "animal": 25,
+    "landscape": 11,
+    "food": 7,
+    "architecture": 8
+  },
+  "subjects": [
+    "beach",
+    "bridge",
+    "brown bear",
+    "cathedral",
+    "coffee",
+    "deer",
+    "dog",
+    "forest",
+    "gray wolf",
+    "mountain",
+    "pizza",
+    "red fox"
+  ],
+  "images": [
+    {
+      "slug": "red-fox-snow-01",
+      "filename": "red-fox-snow-01.jpg",
+      "subject": "red fox",
+      "category": "animal",
+      "attributes": [
+        "snow",
+        "wild",
+        "orange fur"
+      ],
+      "caption": "A red fox hunting in deep snow on a winter field",
+      "confidence": 0.95,
+      "search_query": "red fox snow"
+    },
+    {
+      "slug": "red-fox-forest-02",
+      "filename": "red-fox-forest-02.jpg",
+      "subject": "red fox",
+      "category": "animal",
+      "attributes": [
+        "forest",
+        "wild",
+        "undergrowth"
+      ],
+      "caption": "A red fox walking through forest undergrowth between trees",
+      "confidence": 0.94,
+      "search_query": "red fox forest"
+    },
+    {
+      "slug": "red-fox-meadow-03",
+      "filename": "red-fox-meadow-03.jpg",
+      "subject": "red fox",
+      "category": "animal",
+      "attributes": [
+        "meadow",
+        "wild",
+        "summer"
+      ],
+      "caption": "A red fox sitting in a grass meadow in summer",
+      "confidence": 0.93,
+      "search_query": "red fox meadow grass"
+    },
+    {
+      "slug": "red-fox-closeup-04",
+      "filename": "red-fox-closeup-04.jpg",
+      "subject": "red fox",
+      "category": "animal",
+      "attributes": [
+        "close-up",
+        "portrait",
+        "orange fur"
+      ],
+      "caption": "A close-up portrait of a red fox face with amber eyes",
+      "confidence": 0.96,
+      "search_query": "red fox close up portrait"
+    },
+    {
+      "slug": "red-fox-night-05",
+      "filename": "red-fox-night-05.jpg",
+      "subject": "red fox",
+      "category": "animal",
+      "attributes": [
+        "night",
+        "wild",
+        "moonlight"
+      ],
+      "caption": "A red fox photographed at night under moonlight",
+      "confidence": 0.88,
+      "search_query": "red fox night"
+    },
+    {
+      "slug": "red-fox-urban-06",
+      "filename": "red-fox-urban-06.jpg",
+      "subject": "red fox",
+      "category": "animal",
+      "attributes": [
+        "urban",
+        "city",
+        "street"
+      ],
+      "caption": "An urban fox on a city street at dusk",
+      "confidence": 0.61,
+      "search_query": "urban fox city street"
+    },
+    {
+      "slug": "gray-wolf-snow-01",
+      "filename": "gray-wolf-snow-01.jpg",
+      "subject": "gray wolf",
+      "category": "animal",
+      "attributes": [
+        "snow",
+        "wild",
+        "winter"
+      ],
+      "caption": "A gray wolf crossing a snowfield in winter",
+      "confidence": 0.94,
+      "search_query": "gray wolf snow"
+    },
+    {
+      "slug": "gray-wolf-forest-02",
+      "filename": "gray-wolf-forest-02.jpg",
+      "subject": "gray wolf",
+      "category": "animal",
+      "attributes": [
+        "forest",
+        "wild",
+        "trees"
+      ],
+      "caption": "A gray wolf standing among trees in an old forest",
+      "confidence": 0.93,
+      "search_query": "gray wolf forest"
+    },
+    {
+      "slug": "gray-wolf-pack-03",
+      "filename": "gray-wolf-pack-03.jpg",
+      "subject": "gray wolf",
+      "category": "animal",
+      "attributes": [
+        "wild",
+        "pack",
+        "meadow"
+      ],
+      "caption": "A wolf pack moving together across open grassland",
+      "confidence": 0.92,
+      "search_query": "wolf pack"
+    },
+    {
+      "slug": "gray-wolf-closeup-04",
+      "filename": "gray-wolf-closeup-04.jpg",
+      "subject": "gray wolf",
+      "category": "animal",
+      "attributes": [
+        "close-up",
+        "portrait",
+        "grey fur"
+      ],
+      "caption": "A close-up portrait of a gray wolf with yellow eyes",
+      "confidence": 0.95,
+      "search_query": "gray wolf close up portrait"
+    },
+    {
+      "slug": "gray-wolf-night-05",
+      "filename": "gray-wolf-night-05.jpg",
+      "subject": "gray wolf",
+      "category": "animal",
+      "attributes": [
+        "night",
+        "dark",
+        "howling"
+      ],
+      "caption": "A dark canine silhouette howling at night, species unclear",
+      "confidence": 0.48,
+      "search_query": "wolf howling night"
+    },
+    {
+      "slug": "dog-meadow-01",
+      "filename": "dog-meadow-01.jpg",
+      "subject": "dog",
+      "category": "animal",
+      "attributes": [
+        "meadow",
+        "pet context",
+        "running"
+      ],
+      "caption": "A domestic dog running across a grass field",
+      "confidence": 0.95,
+      "search_query": "dog running field"
+    },
+    {
+      "slug": "dog-closeup-02",
+      "filename": "dog-closeup-02.jpg",
+      "subject": "dog",
+      "category": "animal",
+      "attributes": [
+        "close-up",
+        "portrait",
+        "pet context"
+      ],
+      "caption": "A close-up portrait of a golden retriever wearing a collar",
+      "confidence": 0.96,
+      "search_query": "golden retriever portrait"
+    },
+    {
+      "slug": "dog-water-03",
+      "filename": "dog-water-03.jpg",
+      "subject": "dog",
+      "category": "animal",
+      "attributes": [
+        "water",
+        "pet context",
+        "swimming"
+      ],
+      "caption": "A dog swimming in a lake and carrying a stick",
+      "confidence": 0.94,
+      "search_query": "dog swimming lake"
+    },
+    {
+      "slug": "dog-snow-04",
+      "filename": "dog-snow-04.jpg",
+      "subject": "dog",
+      "category": "animal",
+      "attributes": [
+        "snow",
+        "pet context",
+        "winter"
+      ],
+      "caption": "A husky dog playing in fresh snow",
+      "confidence": 0.9,
+      "search_query": "husky dog snow"
+    },
+    {
+      "slug": "dog-urban-05",
+      "filename": "dog-urban-05.jpg",
+      "subject": "dog",
+      "category": "animal",
+      "attributes": [
+        "urban",
+        "street",
+        "pet context"
+      ],
+      "caption": "A dog on a leash walking down a city street",
+      "confidence": 0.93,
+      "search_query": "dog city street leash"
+    },
+    {
+      "slug": "brown-bear-water-01",
+      "filename": "brown-bear-water-01.jpg",
+      "subject": "brown bear",
+      "category": "animal",
+      "attributes": [
+        "water",
+        "river",
+        "wild"
+      ],
+      "caption": "A brown bear catching salmon in a river",
+      "confidence": 0.95,
+      "search_query": "brown bear river salmon"
+    },
+    {
+      "slug": "brown-bear-forest-02",
+      "filename": "brown-bear-forest-02.jpg",
+      "subject": "brown bear",
+      "category": "animal",
+      "attributes": [
+        "forest",
+        "wild",
+        "trees"
+      ],
+      "caption": "A brown bear walking through a pine forest",
+      "confidence": 0.93,
+      "search_query": "brown bear forest"
+    },
+    {
+      "slug": "brown-bear-closeup-03",
+      "filename": "brown-bear-closeup-03.jpg",
+      "subject": "brown bear",
+      "category": "animal",
+      "attributes": [
+        "close-up",
+        "portrait",
+        "brown fur"
+      ],
+      "caption": "A close-up portrait of a grizzly bear head",
+      "confidence": 0.94,
+      "search_query": "grizzly bear portrait"
+    },
+    {
+      "slug": "brown-bear-meadow-04",
+      "filename": "brown-bear-meadow-04.jpg",
+      "subject": "brown bear",
+      "category": "animal",
+      "attributes": [
+        "meadow",
+        "wild",
+        "summer"
+      ],
+      "caption": "A brown bear grazing in an alpine meadow",
+      "confidence": 0.91,
+      "search_query": "brown bear meadow"
+    },
+    {
+      "slug": "deer-meadow-01",
+      "filename": "deer-meadow-01.jpg",
+      "subject": "deer",
+      "category": "animal",
+      "attributes": [
+        "meadow",
+        "wild",
+        "grazing"
+      ],
+      "caption": "A red deer stag grazing in an open meadow",
+      "confidence": 0.94,
+      "search_query": "red deer stag meadow"
+    },
+    {
+      "slug": "deer-forest-02",
+      "filename": "deer-forest-02.jpg",
+      "subject": "deer",
+      "category": "animal",
+      "attributes": [
+        "forest",
+        "wild",
+        "trees"
+      ],
+      "caption": "A roe deer standing between trees in a forest",
+      "confidence": 0.93,
+      "search_query": "roe deer forest"
+    },
+    {
+      "slug": "deer-snow-03",
+      "filename": "deer-snow-03.jpg",
+      "subject": "deer",
+      "category": "animal",
+      "attributes": [
+        "snow",
+        "winter",
+        "wild"
+      ],
+      "caption": "A deer standing in a snow covered field",
+      "confidence": 0.92,
+      "search_query": "deer snow winter"
+    },
+    {
+      "slug": "deer-mist-04",
+      "filename": "deer-mist-04.jpg",
+      "subject": "deer",
+      "category": "animal",
+      "attributes": [
+        "mist",
+        "forest",
+        "dawn"
+      ],
+      "caption": "A deer barely visible in heavy morning mist",
+      "confidence": 0.66,
+      "search_query": "deer mist fog"
+    },
+    {
+      "slug": "deer-closeup-05",
+      "filename": "deer-closeup-05.jpg",
+      "subject": "deer",
+      "category": "animal",
+      "attributes": [
+        "close-up",
+        "portrait",
+        "antlers"
+      ],
+      "caption": "A close-up portrait of a stag with large antlers",
+      "confidence": 0.95,
+      "search_query": "stag antlers portrait"
+    },
+    {
+      "slug": "forest-mist-01",
+      "filename": "forest-mist-01.jpg",
+      "subject": "forest",
+      "category": "landscape",
+      "attributes": [
+        "mist",
+        "dawn",
+        "green"
+      ],
+      "caption": "A misty pine forest at dawn with fog between the trees",
+      "confidence": 0.96,
+      "search_query": "misty forest dawn"
+    },
+    {
+      "slug": "forest-snow-02",
+      "filename": "forest-snow-02.jpg",
+      "subject": "forest",
+      "category": "landscape",
+      "attributes": [
+        "snow",
+        "winter"
+      ],
+      "caption": "A snow covered woodland in deep winter",
+      "confidence": 0.95,
+      "search_query": "snowy forest winter"
+    },
+    {
+      "slug": "forest-03",
+      "filename": "forest-03.jpg",
+      "subject": "forest",
+      "category": "landscape",
+      "attributes": [
+        "green",
+        "summer",
+        "canopy"
+      ],
+      "caption": "A dense green forest canopy seen from below",
+      "confidence": 0.96,
+      "search_query": "green forest canopy"
+    },
+    {
+      "slug": "forest-water-04",
+      "filename": "forest-water-04.jpg",
+      "subject": "forest",
+      "category": "landscape",
+      "attributes": [
+        "water",
+        "stream",
+        "green"
+      ],
+      "caption": "A stream running through a mossy green woodland",
+      "confidence": 0.94,
+      "search_query": "forest stream"
+    },
+    {
+      "slug": "mountain-snow-01",
+      "filename": "mountain-snow-01.jpg",
+      "subject": "mountain",
+      "category": "landscape",
+      "attributes": [
+        "snow",
+        "winter",
+        "peak"
+      ],
+      "caption": "A snow covered mountain peak against a blue sky",
+      "confidence": 0.96,
+      "search_query": "snowy mountain peak"
+    },
+    {
+      "slug": "mountain-mist-02",
+      "filename": "mountain-mist-02.jpg",
+      "subject": "mountain",
+      "category": "landscape",
+      "attributes": [
+        "mist",
+        "ridge",
+        "dawn"
+      ],
+      "caption": "A mountain ridge rising above a sea of fog",
+      "confidence": 0.95,
+      "search_query": "mountain ridge fog"
+    },
+    {
+      "slug": "mountain-03",
+      "filename": "mountain-03.jpg",
+      "subject": "mountain",
+      "category": "landscape",
+      "attributes": [
+        "rock",
+        "summit",
+        "altitude"
+      ],
+      "caption": "A rocky alpine summit under bright daylight",
+      "confidence": 0.95,
+      "search_query": "rocky alpine summit"
+    },
+    {
+      "slug": "mountain-water-04",
+      "filename": "mountain-water-04.jpg",
+      "subject": "mountain",
+      "category": "landscape",
+      "attributes": [
+        "water",
+        "lake",
+        "reflection"
+      ],
+      "caption": "A mountain range reflected in a still alpine lake",
+      "confidence": 0.94,
+      "search_query": "mountain lake reflection"
+    },
+    {
+      "slug": "beach-01",
+      "filename": "beach-01.jpg",
+      "subject": "beach",
+      "category": "landscape",
+      "attributes": [
+        "sand",
+        "sunrise",
+        "calm"
+      ],
+      "caption": "A wide empty sandy beach at sunrise",
+      "confidence": 0.96,
+      "search_query": "empty sandy beach sunrise"
+    },
+    {
+      "slug": "beach-water-02",
+      "filename": "beach-water-02.jpg",
+      "subject": "beach",
+      "category": "landscape",
+      "attributes": [
+        "water",
+        "waves",
+        "rocks"
+      ],
+      "caption": "Waves breaking against rocks on a rugged coastline",
+      "confidence": 0.95,
+      "search_query": "waves rocky coast"
+    },
+    {
+      "slug": "beach-night-03",
+      "filename": "beach-night-03.jpg",
+      "subject": "beach",
+      "category": "landscape",
+      "attributes": [
+        "night",
+        "stars",
+        "dark"
+      ],
+      "caption": "A beach at night under a sky full of stars",
+      "confidence": 0.93,
+      "search_query": "beach night stars"
+    },
+    {
+      "slug": "pizza-01",
+      "filename": "pizza-01.jpg",
+      "subject": "pizza",
+      "category": "food",
+      "attributes": [
+        "cheese",
+        "tomato",
+        "baked"
+      ],
+      "caption": "A whole margherita pizza fresh from a wood oven",
+      "confidence": 0.97,
+      "search_query": "margherita pizza"
+    },
+    {
+      "slug": "pizza-closeup-02",
+      "filename": "pizza-closeup-02.jpg",
+      "subject": "pizza",
+      "category": "food",
+      "attributes": [
+        "close-up",
+        "cheese",
+        "slice"
+      ],
+      "caption": "A close-up of a pizza slice being lifted",
+      "confidence": 0.96,
+      "search_query": "pizza slice close up"
+    },
+    {
+      "slug": "pizza-03",
+      "filename": "pizza-03.jpg",
+      "subject": "pizza",
+      "category": "food",
+      "attributes": [
+        "baked",
+        "table",
+        "meal"
+      ],
+      "caption": "A neapolitan pizza served on a wooden table",
+      "confidence": 0.96,
+      "search_query": "neapolitan pizza table"
+    },
+    {
+      "slug": "coffee-01",
+      "filename": "coffee-01.jpg",
+      "subject": "coffee",
+      "category": "food",
+      "attributes": [
+        "cup",
+        "espresso",
+        "dark"
+      ],
+      "caption": "A single espresso in a white cup on a saucer",
+      "confidence": 0.96,
+      "search_query": "espresso cup"
+    },
+    {
+      "slug": "coffee-closeup-02",
+      "filename": "coffee-closeup-02.jpg",
+      "subject": "coffee",
+      "category": "food",
+      "attributes": [
+        "close-up",
+        "latte",
+        "foam"
+      ],
+      "caption": "A close-up of latte art in a cappuccino cup",
+      "confidence": 0.95,
+      "search_query": "latte art close up"
+    },
+    {
+      "slug": "coffee-urban-03",
+      "filename": "coffee-urban-03.jpg",
+      "subject": "coffee",
+      "category": "food",
+      "attributes": [
+        "urban",
+        "cafe",
+        "table"
+      ],
+      "caption": "A coffee cup on a table at a city street cafe",
+      "confidence": 0.94,
+      "search_query": "street cafe coffee"
+    },
+    {
+      "slug": "coffee-04",
+      "filename": "coffee-04.jpg",
+      "subject": "coffee",
+      "category": "food",
+      "attributes": [
+        "beans",
+        "roast",
+        "brown"
+      ],
+      "caption": "Roasted coffee beans spilling from a bag",
+      "confidence": 0.95,
+      "search_query": "roasted coffee beans"
+    },
+    {
+      "slug": "bridge-water-01",
+      "filename": "bridge-water-01.jpg",
+      "subject": "bridge",
+      "category": "architecture",
+      "attributes": [
+        "water",
+        "river",
+        "span"
+      ],
+      "caption": "A steel suspension bridge spanning a wide river",
+      "confidence": 0.96,
+      "search_query": "suspension bridge river"
+    },
+    {
+      "slug": "bridge-urban-02",
+      "filename": "bridge-urban-02.jpg",
+      "subject": "bridge",
+      "category": "architecture",
+      "attributes": [
+        "urban",
+        "city",
+        "steel"
+      ],
+      "caption": "A city bridge carrying traffic between two districts",
+      "confidence": 0.95,
+      "search_query": "city bridge traffic"
+    },
+    {
+      "slug": "bridge-night-03",
+      "filename": "bridge-night-03.jpg",
+      "subject": "bridge",
+      "category": "architecture",
+      "attributes": [
+        "night",
+        "lights",
+        "span"
+      ],
+      "caption": "A lit suspension bridge photographed at night",
+      "confidence": 0.94,
+      "search_query": "bridge at night lights"
+    },
+    {
+      "slug": "bridge-mist-04",
+      "filename": "bridge-mist-04.jpg",
+      "subject": "bridge",
+      "category": "architecture",
+      "attributes": [
+        "mist",
+        "fog",
+        "span"
+      ],
+      "caption": "A long bridge disappearing into thick fog",
+      "confidence": 0.92,
+      "search_query": "bridge in fog"
+    },
+    {
+      "slug": "cathedral-01",
+      "filename": "cathedral-01.jpg",
+      "subject": "cathedral",
+      "category": "architecture",
+      "attributes": [
+        "gothic",
+        "stone",
+        "arches"
+      ],
+      "caption": "A gothic cathedral facade with tall stone arches",
+      "confidence": 0.96,
+      "search_query": "gothic cathedral facade"
+    },
+    {
+      "slug": "cathedral-urban-02",
+      "filename": "cathedral-urban-02.jpg",
+      "subject": "cathedral",
+      "category": "architecture",
+      "attributes": [
+        "urban",
+        "city",
+        "square"
+      ],
+      "caption": "A cathedral rising above a busy city square",
+      "confidence": 0.95,
+      "search_query": "cathedral city square"
+    },
+    {
+      "slug": "cathedral-night-03",
+      "filename": "cathedral-night-03.jpg",
+      "subject": "cathedral",
+      "category": "architecture",
+      "attributes": [
+        "night",
+        "lights",
+        "gothic"
+      ],
+      "caption": "A floodlit gothic cathedral at night",
+      "confidence": 0.94,
+      "search_query": "cathedral night floodlit"
+    },
+    {
+      "slug": "cathedral-closeup-04",
+      "filename": "cathedral-closeup-04.jpg",
+      "subject": "cathedral",
+      "category": "architecture",
+      "attributes": [
+        "close-up",
+        "stone",
+        "detail"
+      ],
+      "caption": "A close-up of carved stone detail on a cathedral wall",
+      "confidence": 0.93,
+      "search_query": "cathedral stone carving detail"
+    }
+  ],
+  "identity_note": "`slug` is the stable identity used by the eval set and the fixture vision provider; the on-disk extension depends on whether the corpus was downloaded (.jpg) or generated offline (.png)."
+}

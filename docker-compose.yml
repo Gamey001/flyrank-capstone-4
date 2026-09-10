@@ -1,0 +1,69 @@
+# One command to a running system:
+#     docker compose up --build
+# then seed the demo data:
+#     docker compose exec api python -m scripts.seed
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: flyrank
+      POSTGRES_PASSWORD: flyrank
+      POSTGRES_DB: flyrank
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flyrank -d flyrank"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg2://flyrank:flyrank@db:5432/flyrank
+      APP_ENV: docker
+      # The worker runs as its own service below, so the API stays a pure
+      # request handler and slow AI work cannot starve it.
+      WORKER_ENABLED: "false"
+      VISION_PROVIDER: ${VISION_PROVIDER:-stub}
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-stub}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.62}
+      AI_DAILY_BUDGET_USD: ${AI_DAILY_BUDGET_USD:-1.0}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)\""]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  worker:
+    build: .
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg2://flyrank:flyrank@db:5432/flyrank
+      APP_ENV: docker
+      VISION_PROVIDER: ${VISION_PROVIDER:-stub}
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-stub}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.62}
+      AI_DAILY_BUDGET_USD: ${AI_DAILY_BUDGET_USD:-1.0}
+    volumes:
+      - ./data:/app/data
+    command: python -m app.worker
+
+volumes:
+  pgdata:
