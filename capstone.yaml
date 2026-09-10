@@ -1,0 +1,77 @@
+# Manifest read by the FlyRank evaluator.
+name: flyrank-capstone-image-relevance
+title: AI Image Understanding & Content Matching Engine
+track: backend
+language: python
+framework: fastapi
+
+# One command boots the whole system (API + worker + Postgres).
+run: docker compose up --build -d
+
+# Loads the corpus and posts, then runs vision tagging, embedding and matching.
+seed: docker compose exec -T api sh -c "python -m scripts.make_placeholder_corpus && python -m scripts.seed"
+
+test: docker compose exec -T api python -m pytest
+
+base_url: http://localhost:8000
+
+endpoints:
+  - method: GET
+    path: /health
+    description: Liveness plus the active vision/embedding providers.
+
+  - method: POST
+    path: /v1/jobs
+    description: >-
+      Queue background AI work. Body {"kind": "full_pipeline",
+      "dedupe_key": "run-1"}. Idempotent on dedupe_key.
+
+  - method: GET
+    path: /v1/jobs/{job_id}
+    description: Job status, attempts and per-item progress.
+
+  - method: GET
+    path: /v1/images/stats
+    description: PROBE 1 — corpus counts by status plus the low-confidence flag count.
+
+  - method: GET
+    path: /v1/images?needs_review=true
+    description: PROBE 1 — images the model was not sure about, flagged not guessed.
+
+  - method: GET
+    path: /v1/posts/red-foxes-in-deep-snow/images?limit=60
+    description: >-
+      PROBE 2 — ranked, guarded suggestions. The fox ranks first; wolf and dog
+      rank lower and are refused.
+
+  - method: POST
+    path: /v1/posts/red-foxes-in-deep-snow/images/{image_id}/check
+    description: >-
+      PROBE 3 — force a specific candidate (the wolf) through the mismatch
+      guard; returns a category-mismatch explanation.
+
+  - method: GET
+    path: /v1/posts/restoring-vintage-motorcycles/images
+    description: >-
+      PROBE 4 — no suitable image exists; returns has_confident_match=false
+      with reasons.
+
+  - method: POST
+    path: /v1/eval/run
+    description: PROBE 5 — top-1 precision on the labeled eval set.
+
+  - method: GET
+    path: /v1/costs
+    description: PROBE 6 — the per-call AI cost ledger, every call attributed.
+
+  - method: GET
+    path: /v1/costs/summary
+    description: Spend by operation plus remaining daily budget.
+
+  - method: GET
+    path: /v1/suggestions/{suggestion_id}/explain
+    description: Why an image was selected — or refused.
+
+  - method: POST
+    path: /v1/reviews
+    description: Approve or reject a pairing. Idempotent via Idempotency-Key.

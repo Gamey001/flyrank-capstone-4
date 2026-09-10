@@ -1,0 +1,11 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+*.sqlite3
+eval/report.json
+data/images/*
+!data/images/.gitkeep
+.env
